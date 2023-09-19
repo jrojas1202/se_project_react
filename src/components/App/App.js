@@ -40,19 +40,17 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    if (!activeModal) return; // stop the effect not to add the listener if there is no active modal
+    if (!activeModal) return;
     const handleEscClose = (e) => {
-      // define the function inside useEffect not to lose the reference on rerendering
       if (e.key === "Escape") {
         handleCloseModal();
       }
     };
     document.addEventListener("keydown", handleEscClose);
     return () => {
-      // don't forget to add a clean up function for removing the listener
       document.removeEventListener("keydown", handleEscClose);
     };
-  }, [activeModal]); // watch activeModal here
+  }, [activeModal]);
 
   return (
     <div className="page">
@@ -63,10 +61,7 @@ const App = () => {
           weatherLocation={weatherLocation}
           handleAddClick={() => setActiveModal("create")}
         />
-        <Main
-          weatherTemp={weatherTemp}
-          onCardClick={handleCardClick} //handle selected card
-        />
+        <Main weatherTemp={weatherTemp} onCardClick={handleCardClick} />
         <Footer />
       </div>
       {activeModal === "create" && (

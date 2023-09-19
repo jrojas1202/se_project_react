@@ -17,7 +17,6 @@ function Main({ weatherTemp, onCardClick }) {
     }
   }, [weatherTemp]);
 
-  // Construct the image path based on weatherType
   const weatherCardImage = weatherOptions.find(
     (option) => option.weatherType === weatherType && option.day === day
   )?.link;
