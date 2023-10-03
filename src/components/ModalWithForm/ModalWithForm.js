@@ -1,30 +1,28 @@
-import React, { Children, useState } from "react";
 import "./ModalWithForm.css";
 
-const ModalWithForm = ({
-  buttonText = "Add Garment",
-  title,
+function ModalWithForm({
   children,
-  onClose,
-  modalName,
-}) => {
+  buttonText,
+  title,
+  name,
+  onCloseModal,
+  isOpen,
+  onSubmit,
+}) {
   return (
-    <div className={`modal modal-type-${modalName}`}>
-      <form>
-        <div className="modal__container">
-          <button
-            type="button"
-            onClick={onClose}
-            className="modal__close-button"
-          />
-          <h3 className="modal__title">{title}</h3>
+    <div className={`modal modal_type_${name}`}>
+      <div className="modal__container">
+        <button className="modal__close" type="button" onClick={onCloseModal} />
+        <h3 className="modal__form-title">{title}</h3>
+        <form className="modal__form" onSubmit={onSubmit}>
           {children}
-          <button type="submit" className="modal__submit-button">
+          <button className="modal__submit-btn" type="submit">
             {buttonText}
           </button>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   );
-};
+}
+
 export default ModalWithForm;

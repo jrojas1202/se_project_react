@@ -1,60 +1,43 @@
-import React from "react";
 import "./Header.css";
-import "./Navigation.css";
+import logo from "../../images/WTWRlogo.svg";
 import avatar from "../../images/avatar.svg";
-import WTWRlogo from "../../images/WTWRlogo.svg";
+import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
-const Header = ({ weatherTemp, weatherLocation, onCreateModal }) => {
-  if (!weatherTemp) return null;
+function Header({ onOpenModal, userLocation }) {
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
   });
-  const username = "Terrence Tegegne";
-  const isAvatarSet = Boolean(avatar);
 
   return (
     <header className="header">
-      <div className="header__container">
-        <img src={WTWRlogo} alt="What to Wear logo" className="header__logo" />
+      <div className="header__logo">
+        <Link to="/">
+          <img src={logo} alt="App logo" />
+        </Link>
+
         <p className="header__date">
-          {currentDate}, {weatherLocation}
+          {currentDate}, {userLocation}
         </p>
       </div>
-      <div className="header__nav">
-        <nav className="navigation">
-          <ul className="navigation__container">
-            <li>
-              <button onClick={onCreateModal} className="navigation__button">
-                + Add Clothes
-              </button>
-            </li>
-            <li>
-              <div className="navigation__link">
-                {username}
-                {avatar ? (
-                  <span
-                    className={`navigation__user ${
-                      isAvatarSet ? "navigation__user_avatar" : ""
-                    }`}
-                  >
-                    <img
-                      className="navigation__user"
-                      src={avatar}
-                      alt="user avatar"
-                    ></img>
-                  </span>
-                ) : (
-                  <span className="navigation__user navigation__user_type_none">
-                    {username?.toUpperCase().charAt(0) || ""}
-                  </span>
-                )}
-              </div>
-            </li>
-          </ul>
-        </nav>
+
+      <div className="header__profile">
+        <ToggleSwitch />
+        <div>
+          <button className="header__add-btn" type="text" onClick={onOpenModal}>
+            + Add Clothes
+          </button>
+        </div>
+        <Link to="/profile">
+          <div className="header__name">John Rojas</div>
+        </Link>
+        <div>
+          <img src={avatar} alt="Avatar icon" />
+        </div>
       </div>
     </header>
   );
-};
+}
+
 export default Header;

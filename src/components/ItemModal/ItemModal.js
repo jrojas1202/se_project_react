@@ -1,26 +1,31 @@
 import "./ItemModal.css";
-import "../ModalWithForm/ModalWithForm.css";
-const ItemModal = ({ selectedCard, onClose }) => {
+
+function ItemModal({ selectedCard, onCloseModal, handleDeleteButton }) {
   return (
-    <div className="modal">
-      <div className="modal__container-image">
+    <div className={`modal`}>
+      <div className="modal__preview-container">
+        <button
+          className="modal__preview-close-btn"
+          type="button"
+          onClick={onCloseModal}
+        />
+        <img
+          className="modal__image"
+          src={selectedCard.imageUrl}
+          alt={selectedCard.name}
+        />
+        <p className="modal__preview-name">{selectedCard.name}</p>
+        <p className="modal__preview-type"> Weather: {selectedCard.weather}</p>
         <button
           type="button"
-          onClick={onClose}
-          className="modal__close-button-white"
-        ></button>
-        <img
-          src={selectedCard.link}
-          className="modal__image-preview"
-          alt={selectedCard.name}
-        ></img>
-        <p className="modal__item-name">{selectedCard.name}</p>
-        <p className="modal__weather-type">
-          Weather Type: {selectedCard.weatherType}
-        </p>
+          className="modal__preview-delete-btn"
+          onClick={handleDeleteButton}
+        >
+          Delete Item
+        </button>
       </div>
     </div>
   );
-};
+}
 
 export default ItemModal;
