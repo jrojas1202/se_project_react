@@ -40,5 +40,5 @@ function Main({ weatherTemp, onSelectCard, clothingItems, type, day }) {
     </main>
   );
 }
-
+// Thanks Vishal //
 export default Main;
