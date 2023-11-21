@@ -3,6 +3,7 @@ import { request } from "./api";
 const latitude = 10.99;
 const longitude = 44.34;
 const APIkey = `0a4530af402b94f1b5f9b35269fbad5d`;
+
 export const getWeatherApi = () => {
   const weatherApi = request(
     `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${APIkey}`
@@ -36,8 +37,8 @@ export const parseForcastData = (data) => {
 export const parseTimeOfDay = (data) => {
   const currentTime = Date.now();
   const timeOfDay = data.sys;
-  const sunrise = timeOfDay.sunrise;
-  const sunset = timeOfDay.sunset;
+  const sunrise = timeOfDay.sunrise * 1000;
+  const sunset = timeOfDay.sunset * 1000;
 
   if (currentTime > sunrise && currentTime < sunset) {
     return true;

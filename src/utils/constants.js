@@ -1,66 +1,62 @@
-const location = { latitude: "", longitude: "" };
-export { location };
-export const link = URL;
-export const day = true;
 export const WeatherOptions = [
   {
-    link: require("../images/day/day-sunny.svg").default,
+    url: require("../images/day/day-sunny.svg").default,
     day: true,
-    weatherType: "sunny",
+    type: "clear",
   },
   {
-    link: require("../images/day/day-cloudy.svg").default,
+    url: require("../images/day/day-cloudy.svg").default,
     day: true,
-    weatherType: "cloudy",
+    type: "clouds",
   },
   {
-    link: require("../images/day/day-fog.svg").default,
+    url: require("../images/day/day-rain.svg").default,
     day: true,
-    weatherType: "fog",
+    type: "rain",
   },
   {
-    link: require("../images/day/day-rain.svg").default,
+    url: require("../images/day/day-snow.svg").default,
     day: true,
-    weatherType: "rain",
+    type: "snow",
   },
   {
-    link: require("../images/day/day-snow.svg").default,
+    url: require("../images/day/day-storm.svg").default,
     day: true,
-    weatherType: "snow",
+    type: "storm",
   },
   {
-    link: require("../images/day/day-storm.svg").default,
+    url: require("../images/day/day-fog.svg").default,
     day: true,
-    weatherType: "storm",
+    type: "mist",
   },
   {
-    link: require("../images/night/night-clear.svg").default,
+    url: require("../images/night/night-cloudy.svg").default,
     day: false,
-    weatherType: "clear",
+    type: "clouds",
   },
   {
-    link: require("../images/night/night-cloudy.svg").default,
+    url: require("../images/night/night-clear.svg").default,
     day: false,
-    weatherType: "cloudy",
+    type: "clear",
   },
   {
-    link: require("../images/night/night-fog.svg").default,
+    url: require("../images/night/night-rain.svg").default,
     day: false,
-    weatherType: "fog",
+    type: "rain",
   },
   {
-    link: require("../images/night/night-rain.svg").default,
+    url: require("../images/night/night-snow.svg").default,
     day: false,
-    weatherType: "rain",
+    type: "snow",
   },
   {
-    link: require("../images/night/night-snow.svg").default,
+    url: require("../images/night/night-storm.svg").default,
     day: false,
-    weatherType: "snow",
+    type: "storm",
   },
   {
-    link: require("../images/night/night-storm.svg").default,
+    url: require("../images/night/night-fog.svg").default,
     day: false,
-    weatherType: "storm",
+    type: "mist",
   },
 ];
