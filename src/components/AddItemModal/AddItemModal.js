@@ -4,7 +4,7 @@ import { useState } from "react";
 
 const AddItemModal = ({ isOpen, onAddItem, onCloseModal, buttonText }) => {
   const [name, setName] = useState("");
-  const [imageUrl, setimageUrl] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
   const [weatherType, setWeatherType] = useState("");
 
   const handleNameChange = (e) => {
@@ -12,7 +12,7 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal, buttonText }) => {
   };
 
   const handleUrlChange = (e) => {
-    setimageUrl(e.target.value);
+    setImageUrl(e.target.value);
   };
 
   const handleWeatherTypeChange = (e) => {
@@ -27,7 +27,7 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal, buttonText }) => {
   useEffect(() => {
     if (!isOpen) {
       setName("");
-      setimageUrl("");
+      setImageUrl("");
       setWeatherType("");
     }
   }, [isOpen]);
