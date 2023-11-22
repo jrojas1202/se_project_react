@@ -120,7 +120,7 @@ function App() {
   };
 
   const handleLogout = () => {
-    setCurrentUser("");
+    setCurrentUser({});
     localStorage.removeItem("jwt");
     setLoggedIn(false);
     history.push("/");
