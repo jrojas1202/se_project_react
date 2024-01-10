@@ -1,6 +1,11 @@
 import React from "react";
 
-const baseUrl = "http://localhost:3001";
+const baseUrl =
+  process.env.NODE_ENV === "production"
+    ? "https://api.wtwr.ladatap.com"
+    : "http://localhost:3001";
+
+// deployed-backend-url is the URL that points to your deployed back end
 
 export const checkResponse = (res) => {
   if (res.ok) {
